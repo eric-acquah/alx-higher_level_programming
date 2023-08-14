@@ -8,7 +8,7 @@ f1 = 0
 f2 = 0
 delim = ", "
 
-print("{}{}{}".format(f1,f2,delim), end="")
+print("{}{}{}".format(f1, f2, delim), end="")
 
 for i in range(99):
 
