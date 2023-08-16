@@ -7,7 +7,7 @@ Print the result of some basic math calculation
 '''
 
 
-def print_cal():
+def call_fun():
     a = 10
     b = 5
 
@@ -18,4 +18,4 @@ def print_cal():
 
 
 if __name__ == "__main__":
-    print_cal()
+    call_fun()
