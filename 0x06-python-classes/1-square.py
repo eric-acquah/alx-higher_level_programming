@@ -4,6 +4,7 @@
 This module defines a class with private attributes
 """
 
+
 class Square:
     """
     This class defines a simple class with a private object attribute
