@@ -3,7 +3,7 @@
 
 def print_matrix_integer(matrix=[[]]):
 
-    if not matrix:
+    if len(matrix) == 1:
         print('')
         return
     for ex_arr in matrix:
