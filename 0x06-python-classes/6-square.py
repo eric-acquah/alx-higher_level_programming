@@ -74,8 +74,8 @@ class Square:
             p = self.__position[0]
             for i in range(self.__size):
                 for j in range(self.__size):
-                        if j == 0:
-                            print(" " * p + "#", end="")
-                        else:
-                            print("#", end="")
+                    if j == 0:
+                        print(" " * p + "#", end="")
+                    else:
+                        print("#", end="")
                 print('')
