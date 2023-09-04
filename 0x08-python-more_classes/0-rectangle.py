@@ -10,4 +10,4 @@ class Rectangle:
     creating an empty class
     """
 
-    pass # do nothing
+    pass  # do nothing
