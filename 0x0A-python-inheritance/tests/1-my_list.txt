@@ -1,0 +1,54 @@
+"""
+Testing the print_sorted method of `MyList` class
+"""
+
+"""Including `MyList` class"""
+>>> MyList = __import__('1-my_list').MyList
+
+
+"""Inserting into list"""
+>>> ken = MyList()
+>>> ken.append(10)
+>>> ken.append(1)
+>>> ken.append(11)
+>>> ken.append(12)
+>>> ken.append(9)
+>>> ken.append(19)
+
+
+"""test `print_sorted`"""
+>>> ken.print_sorted()
+[1, 9, 10, 11, 12, 19]
+
+
+"""Oringinal list is mentained when printed"""
+>>> print(ken)
+[10, 1, 11, 12, 9, 19]
+
+
+"""Exceptions"""
+>>> kent = MyList()
+>>> kent.append(10)
+
+"""adding string values"""
+>>> kent.append('1')
+>>> kent.append(11)
+>>> kent.append("12")
+>>> kent.append(9)
+>>> kent.append(19)
+>>> print(kent)
+[10, '1', 11, '12', 9, 19]
+
+>>> kent.print_sorted()
+Traceback (most recent call last):
+TypeError: List item cannot be mixed types
+
+
+"""case where an empty list is entered"""
+>>> lee = MyList()
+>>> lee.append([])
+>>> print(lee)
+[[]]
+>>> lee.print_sorted()
+Traceback (most recent call last):
+TypeError: List item cannot be mixed types
