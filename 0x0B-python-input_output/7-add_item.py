@@ -18,4 +18,6 @@ for args in range(1, len(sys.argv)):
 
 json_save(argv_list, "add_item.json")
 
-json_load("add_item.json")
+argv_list = json_load("add_item.json")
+
+print(argv_list)
