@@ -1,0 +1,30 @@
+"""
+The is a test module
+"""
+
+>>> BaseGeo = __import__("7-base_geometry").BaseGeometry
+
+"""Instantiate The class"""
+>>> mac = BaseGeo()
+
+"""Run few tests"""
+>>> mac.integer_validator(2, 4)
+>>> mac.integer_validator(2, 100)
+>>> mac.integer_validator(22444444, 100)
+
+"""Exceptions"""
+>>> mac.integer_validator(2, 'l')
+Traceback (most recent call last):
+TypeError: 2 must be an integer
+
+>>> mac.integer_validator("House", 'l')
+Traceback (most recent call last):
+TypeError: House must be an integer
+
+>>> mac.integer_validator("Home", 89 )
+>>> mac.integer_validator("Home", 89)
+
+"""Trying excape characters"""
+>>> mac.integer_validator("Home", '\n')
+Traceback (most recent call last):
+TypeError: Home must be an integer
