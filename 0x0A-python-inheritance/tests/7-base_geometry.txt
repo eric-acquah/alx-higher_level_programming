@@ -11,6 +11,9 @@ The is a test module
 >>> mac.integer_validator(2, 4)
 >>> mac.integer_validator(2, 100)
 >>> mac.integer_validator(22444444, 100)
+>>> mac.integer_validator("age", (4))
+>>> mac.integer_validator("age", True)
+>>> mac.integer_validator("age", )
 
 """Exceptions"""
 >>> mac.integer_validator(2, 'l')
@@ -23,6 +26,23 @@ TypeError: House must be an integer
 
 >>> mac.integer_validator("Home", 89 )
 >>> mac.integer_validator("Home", 89)
+
+>>> mac.integer_validator("age", [1])
+Traceback (most recent call last):
+TypeError: age must be an integer
+
+>>> mac.integer_validator("age", {2, 3})
+Traceback (most recent call last):
+TypeError: age must be an integer
+
+>>> mac.integer_validator("age")
+Traceback (most recent call last):
+TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+>>> mac.integer_validator("age", )
+Traceback (most recent call last):
+TypeError: integer_validator() missing 1 required positional argument: 'value'
+
 
 """Trying excape characters"""
 >>> mac.integer_validator("Home", '\n')
