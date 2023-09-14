@@ -13,7 +13,6 @@ The is a test module
 >>> mac.integer_validator(22444444, 100)
 >>> mac.integer_validator("age", (4))
 >>> mac.integer_validator("age", True)
->>> mac.integer_validator("age", )
 
 """Exceptions"""
 >>> mac.integer_validator(2, 'l')
@@ -36,10 +35,6 @@ Traceback (most recent call last):
 TypeError: age must be an integer
 
 >>> mac.integer_validator("age")
-Traceback (most recent call last):
-TypeError: integer_validator() missing 1 required positional argument: 'value'
-
->>> mac.integer_validator("age", )
 Traceback (most recent call last):
 TypeError: integer_validator() missing 1 required positional argument: 'value'
 
