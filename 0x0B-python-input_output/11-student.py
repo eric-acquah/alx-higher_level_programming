@@ -48,4 +48,7 @@ class Student:
         _dict = self.__dict__
 
         for key in _dict:
-            _dict[key] = json[key]
+            try:
+                _dict[key] = json[key]
+            except KeyError:
+                continue
