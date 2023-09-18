@@ -5,6 +5,7 @@ Testing the base class
 import unittest
 from models.base import Base
 
+
 class BaseTest(unittest.TestCase):
     """Run test for base class"""
 
@@ -15,6 +16,7 @@ class BaseTest(unittest.TestCase):
     def test_instance2(self):
         unmake = Base()
         self.assertEqual(unmake.id, 1)
+
 
 if __name__ == "__main__":
     unittest.main()
