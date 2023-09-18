@@ -7,6 +7,7 @@ Inherits from `Base`
 """
 from models.base import Base
 
+
 class Rectangle(Base):
     """Defines `Rectangle`"""
 
@@ -48,7 +49,6 @@ class Rectangle(Base):
         super().__init__(id)
         if not isinstance(self.id, int):
             raise TypeError("id must be an integer")
-
 
     # Define getters and setters for each private instance attribute
 

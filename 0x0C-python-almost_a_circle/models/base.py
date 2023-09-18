@@ -19,7 +19,7 @@ class Base:
         Args:
             id (int): id of the inheriting class
         """
-        if not id == None:
+        if id is not None:
             self.id = id
         else:
             Base.__nb_objects += 1
