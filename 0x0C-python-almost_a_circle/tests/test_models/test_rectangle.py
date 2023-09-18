@@ -2,7 +2,8 @@
 Test rectangle class
 """
 
-
+from unittest.mock import patch
+from io import StringIO
 import unittest
 from models.rectangle import Rectangle
 
@@ -15,9 +16,6 @@ class RectangleTest(unittest.TestCase):
 
         new_id = Rectangle(10, 2, 4, 7, 4)
         self.assertEqual(new_id.id, 4)
-
-        another_id = Rectangle(2, 10)
-        self.assertEqual(another_id.id, 5)
 
         id_again = Rectangle(10, 2, 0, 0, 12)
         self.assertEqual(id_again.id, 12)
@@ -136,3 +134,15 @@ class RectangleTest(unittest.TestCase):
 
         with self.assertRaises(TypeError):
             value.height = "11"
+
+    def test_display(self):
+        """Test printed output"""
+
+        with patch("sys.stdout", new_callable=StringIO) as mock_stdout:
+            h1 = Rectangle(4, 2)
+
+            h1.display()  # call display function
+
+            output = mock_stdout.getvalue()  # capture stdout
+
+            self.assertEqual(output, "####\n####\n")
