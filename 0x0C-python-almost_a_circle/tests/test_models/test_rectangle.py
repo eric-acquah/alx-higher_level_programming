@@ -146,3 +146,15 @@ class RectangleTest(unittest.TestCase):
             output = mock_stdout.getvalue()  # capture stdout
 
             self.assertEqual(output, "####\n####\n")
+
+    def test_str(self):
+        """Test overidden str method"""
+
+        with patch("sys.stdout", new_callable=StringIO) as mock_stdout:
+            ins = Rectangle(2, 4, 6, 8, 12)
+
+            print(ins)  # make an implecit call to __str__ method
+
+            output = mock_stdout.getvalue()
+
+            self.assertEqual(output, "[Rectangle] (12) 6/8 - 2/4\n")
