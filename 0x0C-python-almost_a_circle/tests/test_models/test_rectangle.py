@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 """
 Test rectangle class
 """
