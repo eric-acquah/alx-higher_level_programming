@@ -5,11 +5,12 @@ This modules define the Rectangle `class`
 Inherits from `Base`
 
 """
+
 from models.base import Base
 
 
 class Rectangle(Base):
-    """Defines `Rectangle`"""
+    """Defines `Rectangle` class"""
 
     def __init__(self, width, height, x=0, y=0, id=None):
         """
@@ -113,10 +114,13 @@ class Rectangle(Base):
         return self.__height * self.__width
 
     def display(self):
+        """Print out characteres"""
+
         for i in range(self.__height):
             print("#" * self.__width)
 
     def __str__(self):
+        """Override the str method"""
 
         str1 = f"[Rectangle] ({self.id}) {self.x}/{self.y} -"
         str2 = f" {self.width}/{self.height}"
