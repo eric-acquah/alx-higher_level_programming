@@ -127,6 +127,23 @@ class Rectangle(Base):
             for i in range(self.__height):
                 print("#" * self.__width)
 
+    def update(self, *args):
+        """
+        Change the instance atrributes
+
+        Args:
+            args (tuple): list of arguments
+        """
+        try:
+            self.id = args[0]
+            self.__width = args[1]
+            self.__height = args[2]
+            self.__x = args[3]
+            self.__y = args[4]
+        # Check instance where fewer arguments are given
+        except IndexError:
+            return
+
     def __str__(self):
         """Override the str method"""
 

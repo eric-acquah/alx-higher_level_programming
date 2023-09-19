@@ -172,3 +172,26 @@ class RectangleTest(unittest.TestCase):
             output = mock_stdout.getvalue()
 
             self.assertEqual(output, "[Rectangle] (12) 6/8 - 2/4\n")
+
+    def test_update(self):
+        """Test the proper altering of the instance attributes"""
+
+        new = Rectangle(3, 7, 9, 15, 21)
+        self.assertEqual(new.width, 3)
+        self.assertEqual(new.id, 21)
+
+        # test for changes
+        new.update(2, 4, 6, 8, 10)
+        self.assertEqual(new.width, 4)
+        self.assertEqual(new.height, 6)
+        self.assertEqual(new.x, 8)
+        self.assertEqual(new.y, 10)
+        self.assertEqual(new.id, 2)
+
+        # edge cases
+        new.update(4, 6, 8)
+        self.assertEqual(new.width, 6)
+        self.assertEqual(new.height, 8)
+        self.assertEqual(new.x, 8)
+        self.assertEqual(new.y, 10)
+        self.assertEqual(new.id, 4)
