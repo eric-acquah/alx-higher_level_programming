@@ -149,6 +149,18 @@ class RectangleTest(unittest.TestCase):
 
             self.assertEqual(output, "####\n####\n")
 
+    def test_display_XY(self):
+        """Test printed output considering x and y values"""
+
+        with patch("sys.stdout", new_callable=StringIO) as mock_stdout:
+            h1 = Rectangle(4, 2, 1, 1)
+
+            h1.display()  # call display function
+
+            output = mock_stdout.getvalue()  # capture stdout
+
+            self.assertEqual(output, "\n ####\n ####\n")
+
     def test_str(self):
         """Test overidden str method"""
 

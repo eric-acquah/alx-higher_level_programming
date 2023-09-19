@@ -116,8 +116,16 @@ class Rectangle(Base):
     def display(self):
         """Print out characteres"""
 
-        for i in range(self.__height):
-            print("#" * self.__width)
+        if self.__x > 0:
+            if self.__y > 0:
+                print("\n" * self.__y, end="")
+            for i in range(self.__height):
+                print(" " * self.__x + "#" * self.__width)
+        else:
+            if self.__y > 0:
+                print("\n" * self.__y, end="")
+            for i in range(self.__height):
+                print("#" * self.__width)
 
     def __str__(self):
         """Override the str method"""
