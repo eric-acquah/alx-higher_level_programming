@@ -25,7 +25,7 @@ class TestSquare(unittest.TestCase):
 
     def test_methods(self):
         """Testing methods"""
-        new = Square(2, 2)
+        new = Square(2, 2, 0, 1)
         self.assertEqual(new.area(), 4)
 
         with patch("sys.stdout", new_callable=StringIO) as mock_stdout:
@@ -43,3 +43,25 @@ class TestSquare(unittest.TestCase):
 
         with self.assertRaises(ValueError):
             new = Square(0, 2)
+
+    def test_getter_setter(self):
+        """getter must return value of width"""
+        dd = Square(5, 4, 0, 44)
+        self.assertEqual(dd.width, 5)
+        self.assertEqual(dd.height, 5)
+        self.assertEqual(dd.x, 4)
+        self.assertEqual(dd.y, 0)
+        self.assertEqual(dd.id, 44)
+
+        dd.size = 7
+        self.assertEqual(dd.width, 7)
+        self.assertEqual(dd.height, 7)
+        self.assertEqual(dd.x, 4)
+        self.assertEqual(dd.y, 0)
+        self.assertEqual(dd.id, 44)
+
+        with self.assertRaises(TypeError):
+            dd.size = "77"
+
+        with self.assertRaises(ValueError):
+            dd.size = 0
