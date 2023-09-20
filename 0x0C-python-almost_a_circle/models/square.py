@@ -39,3 +39,35 @@ class Square(Rectangle):
 
     def __str__(self):
         return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
+
+    def update(self, *args, **kwargs):
+        """
+        Change the instance atrributes
+
+        Args:
+            args (tuple): list of arguments
+            kwargs (dict): dictionary of new argumnts
+        """
+        if args:
+            try:
+                self.id = args[0]
+                self.width = args[1]
+                self.height = args[1]
+                self.x = args[2]
+                self.y = args[3]
+                # Check instance where fewer arguments are given
+            except IndexError:
+                return
+        else:
+            for key in kwargs:
+                if key == "size":
+                    self.width = kwargs[key]
+                    self.height = kwargs[key]
+                elif key == "x":
+                    self.x = kwargs[key]
+                elif key == "y":
+                    self.y = kwargs[key]
+                elif key == "id":
+                    self.id = kwargs[key]
+                else:
+                    return

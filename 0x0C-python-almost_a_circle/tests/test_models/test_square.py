@@ -65,3 +65,33 @@ class TestSquare(unittest.TestCase):
 
         with self.assertRaises(ValueError):
             dd.size = 0
+
+    def test_SquareUpdate(self):
+        """Testing the update method"""
+        kk = Square(2, 3, 4, 7)
+        self.assertEqual(kk.width, 2)
+        self.assertEqual(kk.height, 2)
+        self.assertEqual(kk.x, 3)
+        self.assertEqual(kk.y, 4)
+        self.assertEqual(kk.id, 7)
+
+        kk.update(1, 3)
+        self.assertEqual(kk.width, 3)
+        self.assertEqual(kk.height, 3)
+        self.assertEqual(kk.x, 3)
+        self.assertEqual(kk.y, 4)
+        self.assertEqual(kk.id, 1)
+
+        kk.update(size=4, x=0)
+        self.assertEqual(kk.width, 4)
+        self.assertEqual(kk.height, 4)
+        self.assertEqual(kk.x, 0)
+        self.assertEqual(kk.y, 4)
+        self.assertEqual(kk.id, 1)
+
+        kk.update(22, size=2, x=1)
+        self.assertEqual(kk.width, 4)
+        self.assertEqual(kk.height, 4)
+        self.assertEqual(kk.x, 0)
+        self.assertEqual(kk.y, 4)
+        self.assertEqual(kk.id, 22)
