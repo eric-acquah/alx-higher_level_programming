@@ -218,3 +218,9 @@ class RectangleTest(unittest.TestCase):
         self.assertEqual(new.x, 8)
         self.assertEqual(new.y, 10)
         self.assertEqual(new.id, 4)
+
+    def test_to_dict(self):
+        """to_dicttionary test"""
+        val = Rectangle(1, 2, 3, 4, 5)
+        out_dict = {'width' : 1, 'height' : 2, 'x' : 3, 'y' : 4, 'id' : 5}
+        self.assertEqual(val.to_dictionary(), out_dict)
