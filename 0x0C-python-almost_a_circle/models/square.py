@@ -51,8 +51,7 @@ class Square(Rectangle):
         if args:
             try:
                 self.id = args[0]
-                self.width = args[1]
-                self.height = args[1]
+                self.size = args[1]
                 self.x = args[2]
                 self.y = args[3]
                 # Check instance where fewer arguments are given
@@ -61,8 +60,7 @@ class Square(Rectangle):
         else:
             for key in kwargs:
                 if key == "size":
-                    self.width = kwargs[key]
-                    self.height = kwargs[key]
+                    self.size = kwargs[key]
                 elif key == "x":
                     self.x = kwargs[key]
                 elif key == "y":
