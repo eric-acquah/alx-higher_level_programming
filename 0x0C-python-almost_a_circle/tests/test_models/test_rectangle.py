@@ -195,3 +195,26 @@ class RectangleTest(unittest.TestCase):
         self.assertEqual(new.x, 8)
         self.assertEqual(new.y, 10)
         self.assertEqual(new.id, 4)
+
+    def test_updated_update(self):
+        """Test the update to the update method"""
+        new = Rectangle(3, 7, 9, 15, 21)
+        self.assertEqual(new.width, 3)
+        self.assertEqual(new.id, 21)
+
+        # test for changes
+        new.update(id=2, width=4, height=6, x=8, y=10)
+        self.assertEqual(new.width, 4)
+        self.assertEqual(new.height, 6)
+        self.assertEqual(new.x, 8)
+        self.assertEqual(new.y, 10)
+        self.assertEqual(new.id, 2)
+
+        # edge cases
+        # kwargs must not work when args is present
+        new.update(4, 6, 8, x=11, y=12)
+        self.assertEqual(new.width, 6)
+        self.assertEqual(new.height, 8)
+        self.assertEqual(new.x, 8)
+        self.assertEqual(new.y, 10)
+        self.assertEqual(new.id, 4)
