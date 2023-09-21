@@ -5,6 +5,7 @@ This module defines the base class for all
 future classes that will be implemeted as part of the `almost circle project`
 
 """
+import json
 
 
 class Base:
@@ -24,3 +25,9 @@ class Base:
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
+
+    def to_json_string(list_dictionaries):
+        """converts a list of dictionary into json string"""
+        if list_dictionaries == None:
+            return f"[]"
+        return json.dumps(list_dictionaries)
