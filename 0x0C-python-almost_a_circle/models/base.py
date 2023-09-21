@@ -5,6 +5,7 @@ This module defines the base class for all
 future classes that will be implemeted as part of the `almost circle project`
 
 """
+
 import json
 
 
@@ -29,6 +30,6 @@ class Base:
     @staticmethod
     def to_json_string(list_dictionaries):
         """converts a list of dictionary into json string"""
-        if list_dictionaries is None:
+        if list_dictionaries == None:
             return f"[]"
         return json.dumps(list_dictionaries)
