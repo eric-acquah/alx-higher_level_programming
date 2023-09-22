@@ -65,3 +65,19 @@ class Base:
             for li in list_objs:
                 obj_list.append(li.to_dictionary())
             f.write(cls.to_json_string(obj_list))
+
+    @staticmethod
+    def from_json_string(json_string):
+        """
+        Return a list of dictionary represented in json string
+
+        Args:
+            json_string (str): list of json strings
+
+        Return:
+            the list of json strings if json_string is not None
+            else return an empty list
+        """
+        if json_string is None:
+            return json.loads(Base.to_json_string([]))
+        return json.loads(json_string)
