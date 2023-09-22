@@ -36,11 +36,13 @@ class Base:
             list_dictionaries (list): list of dictionaries to be converted
 
         Return:
-            string representaion of the list of dictionaries
+            string representaion of the list of dictionaries if successful
+            else return an empty list
         """
 
         if list_dictionaries is None:
-            return f"[]"
+            empty_obj = []
+            return json.dumps(empty_obj)
         return json.dumps(list_dictionaries)
 
     @classmethod
