@@ -9,6 +9,7 @@ future classes that will be implemeted as part of the `almost circle project`
 import json
 import importlib
 
+
 class Base:
     """The base class of the project"""
 
