@@ -7,7 +7,7 @@ future classes that will be implemeted as part of the `almost circle project`
 """
 
 import json
-
+import importlib
 
 class Base:
     """The base class of the project"""
@@ -65,6 +65,28 @@ class Base:
             for li in list_objs:
                 obj_list.append(li.to_dictionary())
             f.write(cls.to_json_string(obj_list))
+
+    @classmethod
+    def create(cls, **dictionary):
+        """
+        Create an and set the attributes of an instance
+
+        Args:
+            dictionary (dict): dictionary of attributes
+            to be passed to the new instance
+
+        Return:
+            The newly created an set instance
+        """
+        # import Rectangle only when it's needed to avoid circular dependancies
+        Rectangle = importlib.import_module("models.rectangle").Rectangle
+
+        cls.dummy = Rectangle(1, 3)  # crearte a dummy instance
+
+        cls.dummy.update(**dictionary)  # use upadte method of Rectangle
+        # to update the new instance with the actual values
+
+        return cls.dummy
 
     @staticmethod
     def from_json_string(json_string):
