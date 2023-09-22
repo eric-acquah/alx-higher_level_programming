@@ -53,11 +53,12 @@ class Base:
         """
 
         with open(f"{list_objs[0].__class__.__name__}.json", 'w') as f:
-            if list_objs is None:
-                f.write("[]")
-                return
 
             obj_list = []  # list to store a dictionary of instance attributes
+
+            if list_objs is None:
+                f.write(cls.to_json_string(obj_list))
+                return
 
             for li in list_objs:
                 obj_list.append(li.to_dictionary())
