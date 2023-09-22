@@ -115,3 +115,26 @@ class Base:
         if json_string is None:
             return json.loads(Base.to_json_string([]))
         return json.loads(json_string)
+
+    @classmethod
+    def load_from_file(cls):
+        """returns list of instances"""
+        try:
+            cls.obj_list = []
+            # File name must be name_of_class.json
+            with open(f"{cls.__name__}.json", 'r') as f:
+
+                # this method returns a list of json strings read from the file
+                read_list = cls.from_json_string(f.read())
+
+                for attr_dict in read_list:  # Extract each dict in the list
+
+                    # for each dict, create a new instance of the given class
+                    # and append to a list of instances
+                    cls.obj_list.append(cls.create(**attr_dict))
+
+                return cls.obj_list
+
+        except FileNotFoundError:
+            # Return an empty list if file was not found
+            return cls.obj_list
