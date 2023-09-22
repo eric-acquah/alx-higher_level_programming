@@ -83,7 +83,7 @@ class Base:
             # import only when it's needed to avoid circular dependancies
             Square = importlib.import_module("models.square").Square
 
-            cls.dummy = Square(1, 3)  # crearte a dummy instance
+            cls.dummy = Square(1)  # crearte a dummy instance
 
             cls.dummy.update(**dictionary)  # use upadte method of child class
             # to update the new instance with the actual values
