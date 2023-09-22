@@ -79,15 +79,26 @@ class Base:
         Return:
             The newly created an set instance
         """
-        # import Rectangle only when it's needed to avoid circular dependancies
-        Rectangle = importlib.import_module("models.rectangle").Rectangle
+        if cls.__name__ == "Square":
+            # import only when it's needed to avoid circular dependancies
+            Square = importlib.import_module("models.square").Square
 
-        cls.dummy = Rectangle(1, 3)  # crearte a dummy instance
+            cls.dummy = Square(1, 3)  # crearte a dummy instance
 
-        cls.dummy.update(**dictionary)  # use upadte method of Rectangle
-        # to update the new instance with the actual values
+            cls.dummy.update(**dictionary)  # use upadte method of child class
+            # to update the new instance with the actual values
 
-        return cls.dummy
+            return cls.dummy
+
+        else:
+
+            Rectangle = importlib.import_module("models.rectangle").Rectangle
+
+            cls.dummy = Rectangle(1, 3)
+
+            cls.dummy.update(**dictionary)
+
+            return cls.dummy
 
     @staticmethod
     def from_json_string(json_string):
