@@ -54,11 +54,11 @@ class Base:
             list_objs (object): instance to serialize
         """
 
-        with open(f"{list_objs[0].__class__.__name__}.json", 'w') as f:
+        with open(f"{cls.__name__}.json", 'w') as f:
 
             obj_list = []  # list to store a dictionary of instance attributes
 
-            if list_objs is None:
+            if list_objs is None or list_objs == []:
                 f.write(cls.to_json_string(obj_list))
                 return
 
