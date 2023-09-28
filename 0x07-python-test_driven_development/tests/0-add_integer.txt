@@ -1,6 +1,8 @@
 """
 Testing add_integer function function
 """
+
+>>> import math
 >>> add_integer = __import__("0-add_integer").add_integer
 
 >>> add_integer(2, 3)
@@ -28,6 +30,7 @@ Testing add_integer function function
 Traceback (most recent call last):
 TypeError: a must be an integer
 
+# Test Exceptions
 >>> add_integer(2, "k")
 Traceback (most recent call last):
 TypeError: b must be an integer
@@ -47,3 +50,18 @@ TypeError: b must be an integer
 >>> add_integer({}, 2)
 Traceback (most recent call last):
 TypeError: a must be an integer
+
+>>> add_integer()
+Traceback (most recent call last):
+TypeError: add_integer() missing 1 required positional argument: 'a'
+
+>>> add_integer(1)
+99
+
+>>> add_integer(1, math.nan)
+Traceback (most recent call last):
+ValueError: cannot convert float NaN to integer
+
+>>> add_integer(20000, 10e390 ** 2)
+Traceback (most recent call last):
+OverflowError: cannot convert float infinity to integer

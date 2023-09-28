@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 """
 This module define a simple function that adds two numbers
 and return the sum
