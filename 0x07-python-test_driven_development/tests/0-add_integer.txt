@@ -1,0 +1,49 @@
+"""
+Testing add_integer function function
+"""
+>>> add_integer = __import__("0-add_integer").add_integer
+
+>>> add_integer(2, 3)
+5
+
+>>> add_integer(-1, 2)
+1
+
+>>> add_integer(100, 0)
+100
+
+>>> add_integer(10.0, 0)
+10
+
+>>> add_integer(-1, 1)
+0
+
+>>> add_integer(-2, 1)
+-1
+
+>>> add_integer(-4.0, 5)
+1
+
+>>> add_integer("k", 2)
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+>>> add_integer(2, "k")
+Traceback (most recent call last):
+TypeError: b must be an integer
+
+>>> add_integer(2, [1])
+Traceback (most recent call last):
+TypeError: b must be an integer
+
+>>> add_integer([], 3)
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+>>> add_integer(2, (1, 2))
+Traceback (most recent call last):
+TypeError: b must be an integer
+
+>>> add_integer({}, 2)
+Traceback (most recent call last):
+TypeError: a must be an integer
