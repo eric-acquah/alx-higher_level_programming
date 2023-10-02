@@ -1,0 +1,68 @@
+"""
+Testing the matrix divided function
+
+"""
+
+>>> matrix_divided = __import__("1-matrix_divided").matrix_divided
+
+
+>>> matrix_divided([[1, 2, 3], [4, 5, 6]], 3)
+[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+
+#Checking devision by zero error
+>>> matrix_divided([[1, 2, 3], [4, 5, 6]], 0)
+Traceback (most recent call last):
+ZeroDivisionError: division by zero
+
+
+#testing for negative devicer
+>>> matrix_divided([[1, 2, 3], [4, 5, 6]], -1)
+[[-1.0, -2.0, -3.0], [-4.0, -5.0, -6.0]]
+
+
+#Exceptions
+>>> matrix_divided([[1, 2, 3], [4, 5, 6]])
+Traceback (most recent call last):
+TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
+
+#Testing for incomplete matrix rows
+>>> matrix_divided([[1, 2, 3], [4, 5]], 3)
+Traceback (most recent call last):
+TypeError: Each row of the matrix must have the same size
+
+
+#Testing typr errors
+>>> matrix_divided([[1, 2, 3], [4, "5", 2]], 3)
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+
+>>> matrix_divided([[1, 2, 3], [4, 5, 2]], "3")
+Traceback (most recent call last):
+TypeError: div must be a number
+
+
+>>> matrix_divided([[1, 2, 3], [4, 5, 2]], None)
+Traceback (most recent call last):
+TypeError: div must be a number
+
+
+>>> matrix_divided(None, 3)
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+
+>>> matrix_divided([[1, 0.2, 1.3], [4, 0.5, 2]], 3)
+[[0.33, 0.07, 0.43], [1.33, 0.17, 0.67]]
+
+
+#Testing the instance of a float divisor
+>>> matrix_divided([[1, 2, 3], [4, 5, 2]], 3.1)
+[[0.32, 0.65, 0.97], [1.29, 1.61, 0.65]]
+
+#Test absent parameters
+>>> matrix_divided()
+Traceback (most recent call last):
+TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'
