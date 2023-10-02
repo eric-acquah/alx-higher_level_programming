@@ -40,7 +40,8 @@ def matrix_divided(matrix, div):
         sub_matrix = []
         for data in col:
 
-            if data is None or (type(data) is not int and type(data) is not float):
+            if data is None or (type(data) is not int and type(data)
+                                is not float):
                 raise TypeError(f"{err_msg1}")
             else:
                 sub_matrix.append(round(data / div, 2))
