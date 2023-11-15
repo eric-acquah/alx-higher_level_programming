@@ -12,7 +12,7 @@ function secondBiggest (list) {
 
   for (let i = 2; i < list.length; i++) {
     // convert current value to integer
-    let val = Math.floor(Number(list[i]));
+    const val = Math.floor(Number(list[i]));
 
     if (currentMax < val) {
       // Give the previous largest value to prev_max
@@ -26,8 +26,6 @@ function secondBiggest (list) {
       // as the second largest
       prevMax = val;
     }
-    console.log('CM => ' + currentMax);
-    console.log('pM => ' + prevMax);
   }
 
   return prevMax;
