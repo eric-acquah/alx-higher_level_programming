@@ -24,7 +24,8 @@ if __name__ == '__main__':
 
     cursor = connection.cursor()
 
-    query = 'SELECT * FROM states WHERE name LIKE "N%" ORDER BY states.id'
+    query = 'SELECT * FROM states WHERE name COLLATE utf8mb4_bin \
+LIKE "N%" ORDER BY states.id'
 
     cursor.execute(query)  # query the database
     output = cursor.fetchall()
