@@ -1,3 +1,3 @@
 #!/bin/bash
 # Send a delete request to server
-curl -X DELETE http://"$1"
+curl -X DELETE "$1"
